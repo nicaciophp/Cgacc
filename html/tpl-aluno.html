@@ -1,0 +1,160 @@
+<div class="container">
+  <!--Button Novo Aluno -->
+  <input type="submit" class="float-right btn btn-success" name="" value="Novo" data-toggle="modal" data-target="#novoAlunoModal"><br><br>
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Alunos</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>E-Mail</th>
+              <th>Matricula</th>
+              <th>Turma</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Nome</th>
+              <th>E-Mail</th>
+              <th>Matricula</th>
+              <th>Turma</th>
+              <th>Ações</th>
+            </tr>
+          </tfoot>
+          <tbody>
+           <!-- BEGIN BLOCK_ALUNO -->
+           <tr>
+            <td>{NOME}</td>
+            <td>{EMAIL}</td>
+            <td>{MATRICULA}</td>
+            <td>{TURMA}</td>
+            <td>{EDITAR} - {VISUALIZAR} - {EXCLUIR}</td>
+          </tr>
+          <!-- END BLOCK_ALUNO -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!--MODAL NOVO ALUNO-->
+
+<div class="modal fade" id="novoAlunoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adicionar novo Aluno</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="adcProdutoEstoque">
+       <br>
+       <form method="post" action="aluno.php">
+        <div class="form-group">
+         <label>Nome:</label>
+         <input type="text" name="nome" class="form-control">
+       </div>
+       <div class="form-group">
+         <label>E-Mail:</label>
+         <input type="text" name="email" class="form-control">
+       </div>
+       <div class="form-group">
+         
+         <select class="form-control" name="curso" hidden="yes">
+           <!-- BEGIN BLOCK_CURSO -->
+           {NOME_CURSO}
+           <!-- END BLOCK_CURSO -->
+         </select>
+       </div>
+       <div class="form-group">
+         <label>Matricula:</label>
+         <input type="text" name="matricula" class="form-control">
+       </div>
+       <div class="form-group">
+         <label>Turma:</label>
+         <input type="text" name="turma" class="form-control">
+       </div>
+       <div class="modal-footer">
+        <input type="submit" name="enviar_aluno" class="btn btn-success">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+
+<!--MODAL EXCLUIR ALUNO-->
+<div class="modal fade" id="excluir_aluno_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Excluir Curso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post" action="acoes_ajax.php">
+        <input type="hidden" name="id_excluir_aluno" id="recipient-id">
+        <div class="modal-body">
+          <p>Realmente deseja excluir esse Curso?</p>
+          <input class="btn btn-success" type="submit" name="excluir_aluno" value="Sim">
+          <button class="btn btn-danger" type="button" data-dismiss="modal">Não</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--MODAL EDITAR ALUNO-->
+<div class="modal fade" id="editar_aluno_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editar_curso_modal">Editar Curso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <br>
+        <form method="post" action="acoes_ajax.php">
+         <input type="hidden" id="recipient-id" name="id_aluno">
+         <div class="form-group">
+          <label>Nome:</label>
+          <input type="text" name="nome" class="form-control" id="recipient-name">
+        </div>
+        <div class="form-group">
+          <label>E-Mail:</label>
+          <input type="text" name="email" class="form-control" id="recipient-email">
+        </div>
+        <div class="form-group">
+          <label>Matricula:</label>
+          <input type="text" name="matricula" class="form-control" id="recipient-matricula">
+        </div>
+        <div class="form-group">
+          <label>Turma:</label>
+          <input type="text" name="turma" class="form-control" id="recipient-turma">
+        </div>
+        <div class="modal-footer">
+         <input type="submit" name="enviar_aluno" class="btn btn-success">
+         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+       </div>
+     </form>
+   </div>
+ </div>
+</div>

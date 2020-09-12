@@ -1,0 +1,22 @@
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+RewriteRule lancar-acc lancar-acc.php
+RewriteRule atividade atividade.php
+RewriteRule categoria categoria.php
+RewriteRule visualiza visualiza.php
+RewriteRule tela_login tela_login.php
+RewriteRule cadastro-usuario cadastro-usuario.php
+RewriteRule curso curso.php
+RewriteRule aluno aluno.php
+RewriteRule editar editar.php
+RewriteRule home home.php
+RewriteRule recuperar_senha recuperar_senha.php
+RewriteRule nova_senha nova_senha.php
+RewriteRule alterar_dados alterar_dados.php
+RewriteRule ^home-([a-zA-Z0-9]+)$ home.php?id=$1
+RewriteRule ^curso-([a-zA-Z0-9]+)$ curso.php?id=$1
+RewriteRule ^editar-([0-9]+)$ editar.php?id=$1
+DirectoryIndex tela_login.php

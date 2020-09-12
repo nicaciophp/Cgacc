@@ -1,0 +1,101 @@
+
+<div id="teste"></div>
+<div class="container">
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Cursos</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Carga Horária de ACC</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Nome</th>
+              <th>Carga Horária de ACC</th>
+              <th>Ação</th>
+            </tr>
+          </tfoot>
+          <tbody>
+           <!-- BEGIN BLOCK_CURSO -->
+           <tr>
+            <td>{NOME}</td>
+            <td>{CH_ACC}</td>
+            <td>{EDITAR} - {EXCLUIR}</td>
+          </tr>
+          <!-- END BLOCK_CURSO -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!--MODAL EXCLUIR CURSO-->
+<div class="modal fade" id="excluir_curso_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Excluir Curso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post" action="acoes_ajax.php">
+        <input type="hidden" name="id_excluir_curso" id="recipient-id-exc">
+      <div class="modal-body">
+        <p>Realmente deseja excluir esse Curso?</p>
+        <input class="btn btn-success" type="submit" name="excluir_curso" value="Sim">
+        <button class="btn btn-danger" type="button" data-dismiss="modal">Não</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--MODAL EDITAR CURSO-->
+  <div class="modal fade" id="editar_cursos_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editar_curso_modal">Editar Curso</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <br>
+           <form method="post" action="acoes_ajax.php">
+            <input type="hidden" name="id_curso" id="recipient-id">
+            <div class="form-group">
+             <label for="">Nome:</label>
+             <input type="text" name="nome" class="form-control" id="recipient-name">
+           </div>
+           <div class="form-group">
+             <label>Carga Horário de ACC:</label>
+             <input type="text" name="ch_acc" class="form-control" id="recipient-chacc">
+           </div>
+           <div class="modal-footer">
+            <input type="submit" name="enviar_curso" class="btn btn-success">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+
+

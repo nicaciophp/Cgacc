@@ -1,0 +1,98 @@
+<div class="container">
+  <!--Button Novo Aluno -->
+  <input type="submit" class="float-right btn btn-success" name="" value="Novo" data-toggle="modal" data-target="#novaCategoria"><br><br>
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Atividades</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Atividade</th>
+              <th>Data Inicio - Fim</th>
+              <th>Instituição</th>
+              <th>Carga Hórária</th>
+              <th>Categoria</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Atividade</th>
+              <th>Data Inicio/Fim</th>
+              <th>Instituição</th>
+              <th>Carga Hórária</th>
+              <th>Categoria</th>
+            </tr>
+          </tfoot>
+          <tbody>
+           <!-- BEGIN BLOCK_ATIVIDADE -->
+           <tr>
+            <td>{ATIVIDADE}</td>
+            <td>{DATA}</td>
+            <td>{INSTITUICAO}</td>
+            <td>{CH}</td>
+            <td>{CATEGORIA}</td>
+          </tr>
+          <!-- END BLOCK_ATIVIDADE -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--MODAL NOVA ATIVIDADE-->
+
+<div class="modal fade" id="novaCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adicionar nova Atividade</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="adcProdutoEstoque">
+       <br>
+      <form action="atividade.php" method="post">
+			<div class="row">
+				<div class="col-6">
+					<label>Nome/Descrição/Título: (*)</label>
+					<input type="text" class="form-control" name="nome" required>
+				</div>
+				<div class="col-6">
+					<label>Instituição/Local: (*)</label>
+					<input type="text" class="form-control" name="instituicao" required>
+				</div>
+				<div class="col-6">
+					<label>Data Inicio: (*)</label>
+					<input type="text" class="form-control" name="data_inicio" required>
+				</div>
+				<div class="col-6">
+					<label>Data Fim: (*)</label>
+					<input type="text" class="form-control" name="data_fim" required>
+				</div>
+				<div class="col-6">
+					<label>Categoria: (*)</label>
+					<select class="form-control selectpicker" data-show-subtext="true" data-live-search="true" name="id_categoria" required>
+						<option></option>
+						<!-- BEGIN BLOCK_CATEGORIA -->
+						{NOME_CATEGORIA}
+						<!-- END BLOCK_CATEGORIA -->
+					</select>
+				</div>
+				<div class="col-4">
+					<label>Carga Horária: (*)</label>
+					<input type="text" class="form-control" name="ch"> <br>
+				</div>
+				<div class="col-6">
+					<input type="submit" class="btn btn-primary" name="enviar_atividade">
+				</div>
+			</form>
+  </div>
+</div>
+</div>
+</div>

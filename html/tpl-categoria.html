@@ -1,0 +1,78 @@
+<div class="container">
+  <!--Button Novo Aluno -->
+  <input type="submit" class="float-right btn btn-success" name="" value="Novo" data-toggle="modal" data-target="#novaCategoria"><br><br>
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Categorias</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th>Curso</th>
+              <th>Carga Horária de ACC</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Categoria</th>
+              <th>Curso</th>
+              <th>Carga Horária de ACC</th>
+            </tr>
+          </tfoot>
+          <tbody>
+           <!-- BEGIN BLOCK_CATEGORIA -->
+           <tr>
+            <td>{CATEGORIA}</td>
+            <td>{CURSO}</td>
+            <td>{CH_MAXIMA}</td>
+          </tr>
+          <!-- END BLOCK_CATEGORIA -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!--MODAL NOVA CATEGORIA-->
+
+<div class="modal fade" id="novaCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adicionar nova Categoria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="adcProdutoEstoque">
+       <br>
+       <form action="categoria.php" method="post">
+      <div class="form-group col-6">
+        <label>Nome Categoria:</label>
+        <input type="text" class="form-control" name="categoria" placeholder="Ex: Eventos, Cursos, Projetos, Viagens de estudos, etc.">
+      </div>
+      <div class="form-group col-6">
+        <select class="form-control " name="curso" hidden="">
+          <!-- BEGIN BLOCK_CURSO -->
+          {NOME_CURSO}
+          <!-- END BLOCK_CURSO -->
+        </select>
+      </div>
+      <div class="form-group col-3">
+        <label>Carga Horária Máxima:</label>
+        <input type="text" class="form-control" name="ch_maxima">
+      </div>
+      <div class="col-6">
+        <input type="submit" class="btn btn-primary" name="enviar_categoria">
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>

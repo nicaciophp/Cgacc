@@ -1,0 +1,30 @@
+<!--<div class="container">
+<form class="" action="editar.php" method="post">
+<input type="text" class="form-control" value="{NOME_CURSO}" name="nome">
+<input type="text" class="form-control" value="{CH_ACC}" name="ch_curso">
+<input type="submit" name="enviar" value="Enviar">
+</form>
+</div>-->
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Editar Curso</h5>
+    </div>
+    <div class="modal-body">
+      <br>
+      <form method="post" action="editar.php">
+        <div class="form-group">
+          <label>Nome:</label>
+          <input type="text" name="nome" class="form-control" value="{NOME_CURSO}">
+        </div>
+        <div class="form-group">
+          <label>Carga Horário de ACC:</label>
+          <input type="text" name="ch_acc" class="form-control" value="{CH_ACC}">
+        </div>
+        <div class="modal-footer">
+          <input type="submit" name="enviar_curso" class="btn btn-success">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
